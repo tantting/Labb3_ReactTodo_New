@@ -4,7 +4,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
-import CommentIcon from "@mui/icons-material/Comment";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function TodoItem({ todo, deleteTodo, toggleDone }) {
   const labelId = `checkbox-list-label-${todo.id}`;
@@ -17,7 +17,7 @@ function TodoItem({ todo, deleteTodo, toggleDone }) {
       secondaryAction={
         <>
           <IconButton edge="end" aria-label="delete" onClick={deleteTodo}>
-            <CommentIcon />
+            <DeleteIcon />
           </IconButton>
         </>
       }

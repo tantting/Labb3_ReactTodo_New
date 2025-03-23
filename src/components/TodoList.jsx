@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
 
-const initialTodos = [
-  { id: 1, text: "dfdfdf", done: false },
-  { id: 2, text: "ja", done: false },
-  { id: 3, text: "nej", done: true },
-  { id: 4, text: "ok", done: false },
-];
+const getInitialData = () => {
+  const data = JSON.parse(localStorage.getItem("todos"));
+  return data || [];
+};
 
 function TodoList() {
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState(getInitialData);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (input) => {
     setTodos((previousTodos) => {
-      return [...previousTodos, { id: 5, text: input, done: false }];
+      return [
+        ...previousTodos,
+        { id: crypto.randomUUID(), text: input, done: false },
+      ];
     });
   };
 
@@ -34,7 +39,10 @@ function TodoList() {
   };
 
   return (
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <List
+      id="TodoList"
+      sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+    >
       {todos.map((todo) => (
         <TodoItem
           todo={todo}
@@ -43,7 +51,7 @@ function TodoList() {
           toggleDone={() => toggleDone(todo.id)}
         />
       ))}
-      <TodoInput addTodo={addTodo} />
+      <TodoInput addTodo={addTodo} id="TodoInput" />
     </List>
   );
 }
