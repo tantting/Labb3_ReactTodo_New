@@ -1,0 +1,19 @@
+.header {
+    height: 4rem;
+    background-color: rgb(8, 37, 81);
+    color: rgb(219, 230, 245);
+    align-items: end;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.header ul {
+    display: flex;
+}
+
+.header ul li {
+    width: fit-content;
+    list-style: none;
+    padding: 0 1rem;
+}

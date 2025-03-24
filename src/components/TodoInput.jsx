@@ -1,5 +1,5 @@
 import { List, ListItem, TextField } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function TodoInput({ addTodo }) {
   const [input, setInput] = useState("");
@@ -23,7 +23,6 @@ function TodoInput({ addTodo }) {
           onChange={changeHandler}
           value={input}
         />
-        ;
       </ListItem>
     </form>
   );

@@ -1,0 +1,14 @@
+#TodoList {
+        background-color: rgb(245, 248, 252);
+        color: rgb(8, 37, 81);
+        border: solid rgb(8, 37, 81);
+        border-radius: 1rem;
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
+}
+
+#TodoInput {
+    width: 100%;
+}

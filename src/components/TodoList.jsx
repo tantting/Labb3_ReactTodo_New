@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import List from "@mui/material/List";
 import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
+import "./TodoList.css";
 
 const getInitialData = () => {
   const data = JSON.parse(localStorage.getItem("todos"));
@@ -45,6 +46,7 @@ function TodoList() {
     >
       {todos.map((todo) => (
         <TodoItem
+          id="TodoItem"
           todo={todo}
           key={todo.id}
           deleteTodo={() => deleteTodo(todo.id)}
